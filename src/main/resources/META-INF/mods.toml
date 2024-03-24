@@ -1,0 +1,34 @@
+modLoader = "javafml"
+loaderVersion = "${loader_version_range}"
+issueTrackerURL = "https://github.com/Technici4n/Immersive-Wiring/issues"
+license = "See GitHub repository for details"
+
+[[mods]]
+modId = "immersivewiring"
+version = "${version}"
+displayName = "Immersive Wiring"
+description = "Expands Immersive Engineering with more wires"
+displayURL = "https://github.com/Technici4n/Immersive-Wiring"
+logoFile = "logo.png"
+authors = "Technici4n"
+
+[[dependencies.immersivewiring]]
+modId = "neoforge"
+type = "required"
+versionRange = "${neo_version_range}"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.immersivewiring]]
+modId = "ae2"
+type = "required"
+versionRange = "${ae2_version_range}"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.immersivewiring]]
+modId = "immersiveengineering"
+type = "required"
+versionRange = "${ie_version_range}"
+ordering = "AFTER"
+side = "BOTH"

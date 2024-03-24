@@ -1,0 +1,6 @@
+{
+  "block.immersivewiring.connector_me": "ME Connector",
+  "block.immersivewiring.connector_me_relay": "ME Relay",
+  "item.immersivewiring.wirecoil_me": "ME Wire Coil",
+  "item.immersivewiring.wirecoil_me_dense": "Dense ME Wire Coil"
+}
