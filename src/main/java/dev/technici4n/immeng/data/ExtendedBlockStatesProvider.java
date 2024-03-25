@@ -1,4 +1,4 @@
-package dev.technici4n.immersivewiring.data;
+package dev.technici4n.immeng.data;
 
 import java.util.List;
 import java.util.function.Consumer;
@@ -16,19 +16,11 @@ import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import blusunrize.immersiveengineering.api.IEProperties;
-import dev.technici4n.immersivewiring.ImmersiveWiring;
+import dev.technici4n.immeng.ImmEng;
 
-public abstract class IWBlockStatesProvider extends BlockStateProvider {
-    private final String module;
-
-    public IWBlockStatesProvider(PackOutput output, ExistingFileHelper exFileHelper, String module) {
-        super(output, ImmersiveWiring.ID, exFileHelper);
-        this.module = module;
-    }
-
-    @Override
-    public final String getName() {
-        return super.getName() + " (" + module + ")";
+public abstract class ExtendedBlockStatesProvider extends BlockStateProvider {
+    public ExtendedBlockStatesProvider(PackOutput output, ExistingFileHelper exFileHelper) {
+        super(output, ImmEng.ID, exFileHelper);
     }
 
     // Mostly copy-pasted from IE
@@ -39,11 +31,6 @@ public abstract class IWBlockStatesProvider extends BlockStateProvider {
     protected void createAllRotatedBlock(Supplier<? extends Block> block,
             Function<VariantBlockStateBuilder.PartialBlockstate, ModelFile> model, List<Property<?>> additionalProps) {
         createRotatedBlock(block, model, IEProperties.FACING_ALL, additionalProps, 90, 0);
-    }
-
-    protected void createRotatedBlock(Supplier<? extends Block> block, ModelFile model, Property<Direction> facing,
-            List<Property<?>> additionalProps, int offsetRotX, int offsetRotY) {
-        createRotatedBlock(block, $ -> model, facing, additionalProps, offsetRotX, offsetRotY);
     }
 
     protected void createRotatedBlock(Supplier<? extends Block> block,

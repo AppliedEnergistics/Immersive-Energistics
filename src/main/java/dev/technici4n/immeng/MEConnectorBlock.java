@@ -1,4 +1,4 @@
-package dev.technici4n.immersivewiring.modules.ae2;
+package dev.technici4n.immeng;
 
 import java.util.function.Supplier;
 

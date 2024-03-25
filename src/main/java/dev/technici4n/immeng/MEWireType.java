@@ -1,4 +1,4 @@
-package dev.technici4n.immersivewiring.modules.ae2;
+package dev.technici4n.immeng;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -15,10 +15,6 @@ public class MEWireType extends WireType {
 
     public MEWireType(boolean dense) {
         this.dense = dense;
-    }
-
-    public boolean isDense() {
-        return dense;
     }
 
     @Override
@@ -43,7 +39,7 @@ public class MEWireType extends WireType {
 
     @Override
     public ItemStack getWireCoil(Connection connection) {
-        return dense ? AEModule.ME_WIRE_DENSE_COIL.toStack() : AEModule.ME_WIRE_COIL.toStack();
+        return dense ? ImmEng.ME_WIRE_DENSE_COIL.toStack() : ImmEng.ME_WIRE_COIL.toStack();
     }
 
     @Override

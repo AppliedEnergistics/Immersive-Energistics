@@ -24,19 +24,19 @@ jobs:
       - name: Generate data
         run: ./gradlew runData --max-workers 1
         env:
-          IW_VERSION: ${{ github.event.release.tag_name }}
+          MOD_VERSION: ${{ github.event.release.tag_name }}
       - name: Build
         run: ./gradlew build --max-workers 1
         env:
-          IW_VERSION: ${{ github.event.release.tag_name }}
+          MOD_VERSION: ${{ github.event.release.tag_name }}
       - name: Upload Release Artifact
         uses: softprops/action-gh-release@v1
         with:
-          files: build/libs/Immersive-Wiring-${{ github.event.release.tag_name }}.jar
+          files: build/libs/Immersive-Energistics-${{ github.event.release.tag_name }}.jar
           tag_name: ${{ github.event.release.tag_name }}
       - name: Upload to external sites
         run: ./gradlew curseforge modrinth --max-workers 1
         env:
-          IW_VERSION: ${{ github.event.release.tag_name }}
+          MOD_VERSION: ${{ github.event.release.tag_name }}
           CURSEFORGE: ${{ secrets.CURSEFORGE }}
           MODRINTH: ${{ secrets.MODRINTH }}

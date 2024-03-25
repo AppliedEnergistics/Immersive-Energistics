@@ -40,5 +40,5 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: immersive-wiring
+          name: immersive-energistics
           path: build/libs/

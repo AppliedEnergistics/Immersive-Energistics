@@ -1,4 +1,4 @@
-package dev.technici4n.immersivewiring.modules.ae2;
+package dev.technici4n.immeng;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -67,13 +67,13 @@ public class MEConnectorBlockEntity extends ImmersiveConnectableBlockEntity
     }
 
     public MEConnectorBlockEntity(BlockPos pos, BlockState state) {
-        super(state.is(AEModule.ME_RELAY) ? AEModule.ME_RELAY_BE.get() : AEModule.ME_CONNECTOR_BE.get(), pos, state);
-        this.relay = state.is(AEModule.ME_RELAY);
+        super(state.is(ImmEng.ME_RELAY) ? ImmEng.ME_RELAY_BE.get() : ImmEng.ME_CONNECTOR_BE.get(), pos, state);
+        this.relay = state.is(ImmEng.ME_RELAY);
 
         if (this.relay) {
-            gridNode.setVisualRepresentation(AEModule.ME_RELAY_ITEM);
+            gridNode.setVisualRepresentation(ImmEng.ME_RELAY_ITEM);
         } else {
-            gridNode.setVisualRepresentation(AEModule.ME_CONNECTOR_ITEM);
+            gridNode.setVisualRepresentation(ImmEng.ME_CONNECTOR_ITEM);
             gridNode.setInWorldNode(true);
         }
 
@@ -181,10 +181,10 @@ public class MEConnectorBlockEntity extends ImmersiveConnectableBlockEntity
         // Update flags and active item based on wire
         if (connection.type == MEWireType.DENSE) {
             wireNode.setFlags(GridFlags.DENSE_CAPACITY);
-            wireNode.setVisualRepresentation(AEModule.ME_WIRE_DENSE_COIL);
+            wireNode.setVisualRepresentation(ImmEng.ME_WIRE_DENSE_COIL);
         } else {
             wireNode.setFlags(GridFlags.PREFERRED);
-            wireNode.setVisualRepresentation(AEModule.ME_WIRE_COIL);
+            wireNode.setVisualRepresentation(ImmEng.ME_WIRE_COIL);
         }
         wireNode.create(getLevelNonnull(), null);
 

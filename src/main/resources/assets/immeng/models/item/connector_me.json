@@ -46,5 +46,5 @@
       "translation": [-1.0, 2.0, 3.0]
     }
   },
-  "parent": "immersivewiring:block/connector_me_relay"
+  "parent": "immeng:block/connector_me"
 }

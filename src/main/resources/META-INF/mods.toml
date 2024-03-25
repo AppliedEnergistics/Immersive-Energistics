@@ -1,14 +1,14 @@
 modLoader = "javafml"
 loaderVersion = "${loader_version_range}"
-issueTrackerURL = "https://github.com/Technici4n/Immersive-Wiring/issues"
-license = "See GitHub repository for details"
+issueTrackerURL = "https://github.com/AppliedEnergistics/Immersive-Energistics/issues"
+license = "LGPLv3"
 
 [[mods]]
-modId = "immersivewiring"
+modId = "immeng"
 version = "${version}"
-displayName = "Immersive Wiring"
-description = "Expands Immersive Engineering with more wires"
-displayURL = "https://github.com/Technici4n/Immersive-Wiring"
+displayName = "Immersive Energistics"
+description = "Adds ME-capable wires to Immersive Engineering."
+displayURL = "https://github.com/AppliedEnergistics/Immersive-Energistics"
 logoFile = "logo.png"
 authors = "Technici4n"
 

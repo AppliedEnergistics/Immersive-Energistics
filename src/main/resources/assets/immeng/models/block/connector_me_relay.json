@@ -1,8 +1,8 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "immersivewiring:block/connector_me_relay",
-    "particle": "immersivewiring:block/connector_me_relay"
+    "0": "immeng:block/connector_me_relay",
+    "particle": "immeng:block/connector_me_relay"
   },
   "elements": [
     {
