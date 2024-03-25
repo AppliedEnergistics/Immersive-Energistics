@@ -1,10 +1,11 @@
-# Applied Mekanistics
+# Immersive Energistics
 
-Use Mekanism resources through your ME network
+The official Immersive Engineering support addon for AE2. Currently adds ME-capable wires.
 
 ## License
 
-Everything is under the [LGPLv3][lgpl], but assets are under [CC BY-NC-SA 3.0][cc]
+All the code is under the [LGPLv3][lgpl] license.
 
-[lgpl]: https://spdx.org/licenses/LGPL-3.0-or-later.html
-[cc]: https://creativecommons.org/licenses/by-nc-sa/3.0/
+The assets are derived from Immersive Engineering and AE2's assets.
+Credits to Damien Hazard and Ridanisaurus Rid for the originals.
+
