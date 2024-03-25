@@ -17,24 +17,19 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - name: Use Gradle cache for faster builds
-        uses: actions/cache@v3
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
         with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
-      - name: Cleanup Gradle Cache
-        # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.
-        # Restoring these files from a GitHub Actions cache might cause problems for future builds.
+          cache-read-only: ${{ github.ref != 'refs/heads/main' }}
+      - name: Generate assets
+        run: ./gradlew runData
+      - name: Check that datagen ran
+        run: test -d ./src/generated/resources/.cache
+      - name: Make sure that datagenned files in the repo are up-to-date
         run: |
-          rm -f ~/.gradle/caches/modules-2/modules-2.lock
-          rm -f ~/.gradle/caches/modules-2/gc.properties
-      - name: Setup Gradle Wrapper Cache
-        uses: actions/cache@v3
-        with:
-          path: ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-wrapper-${{ hashFiles('**/gradle/wrapper/gradle-wrapper.properties') }}
-      - name: Generate data
-        run: ./gradlew runData --max-workers 1
+          # Print status for easier debugging
+          git status
+          if [ -n "$(git status --porcelain)" ]; then exit 1; fi
       - name: Build
         run: ./gradlew build --max-workers 1
       - name: Upload artifacts

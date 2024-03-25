@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "immeng:block/connector_me_relay"
+    },
+    "facing=east": {
+      "model": "immeng:block/connector_me_relay",
+      "x": 90,
+      "y": 270
+    },
+    "facing=north": {
+      "model": "immeng:block/connector_me_relay",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south": {
+      "model": "immeng:block/connector_me_relay",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "immeng:block/connector_me_relay",
+      "x": 180
+    },
+    "facing=west": {
+      "model": "immeng:block/connector_me_relay",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

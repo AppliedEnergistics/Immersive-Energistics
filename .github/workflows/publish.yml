@@ -21,10 +21,6 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - name: Generate data
-        run: ./gradlew runData --max-workers 1
-        env:
-          MOD_VERSION: ${{ github.event.release.tag_name }}
       - name: Build
         run: ./gradlew build --max-workers 1
         env:

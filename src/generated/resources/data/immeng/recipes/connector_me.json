@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": {
+      "item": "ae2:fluix_block"
+    },
+    "f": {
+      "item": "ae2:fluix_crystal"
+    }
+  },
+  "pattern": [
+    " f ",
+    "FfF",
+    "FfF"
+  ],
+  "result": {
+    "count": 4,
+    "item": "immeng:connector_me"
+  }
+}

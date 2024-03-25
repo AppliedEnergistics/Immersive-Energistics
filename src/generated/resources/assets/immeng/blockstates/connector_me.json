@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "immeng:block/connector_me"
+    },
+    "facing=east": {
+      "model": "immeng:block/connector_me",
+      "x": 90,
+      "y": 270
+    },
+    "facing=north": {
+      "model": "immeng:block/connector_me",
+      "x": 90,
+      "y": 180
+    },
+    "facing=south": {
+      "model": "immeng:block/connector_me",
+      "x": 90
+    },
+    "facing=up": {
+      "model": "immeng:block/connector_me",
+      "x": 180
+    },
+    "facing=west": {
+      "model": "immeng:block/connector_me",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

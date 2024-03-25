@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "ae2:fluix_covered_dense_cable"
+    },
+    "s": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    " c ",
+    "csc",
+    " c "
+  ],
+  "result": {
+    "count": 4,
+    "item": "immeng:wirecoil_me_dense"
+  }
+}
