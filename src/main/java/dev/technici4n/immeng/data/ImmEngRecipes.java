@@ -1,5 +1,8 @@
 package dev.technici4n.immeng.data;
 
+import java.util.concurrent.CompletableFuture;
+
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
@@ -16,8 +19,8 @@ import appeng.api.ids.AEItemIds;
 import appeng.api.ids.AEPartIds;
 
 public class ImmEngRecipes extends RecipeProvider implements IConditionBuilder {
-    public ImmEngRecipes(PackOutput packOutput) {
-        super(packOutput);
+    public ImmEngRecipes(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> registries) {
+        super(packOutput, registries);
     }
 
     @Override

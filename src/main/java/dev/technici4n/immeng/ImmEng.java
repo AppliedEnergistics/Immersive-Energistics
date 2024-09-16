@@ -3,9 +3,6 @@ package dev.technici4n.immeng;
 import java.util.List;
 import java.util.Set;
 
-import org.jetbrains.annotations.Nullable;
-
-import net.minecraft.core.Direction;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -14,7 +11,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.capabilities.BlockCapability;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
@@ -31,16 +27,15 @@ import dev.technici4n.immeng.data.ImmEngBlockTags;
 import dev.technici4n.immeng.data.ImmEngRecipes;
 import dev.technici4n.immeng.data.ImmEngStatesProvider;
 
-import appeng.api.ids.AEConstants;
+import appeng.api.AECapabilities;
 import appeng.api.ids.AECreativeTabIds;
-import appeng.api.networking.IInWorldGridNodeHost;
 
 @Mod(ImmEng.ID)
 public class ImmEng {
     public static final String ID = "immeng";
 
     public static ResourceLocation id(String path) {
-        return new ResourceLocation(ID, path);
+        return ResourceLocation.fromNamespaceAndPath(ID, path);
     }
 
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(ID);
@@ -72,9 +67,6 @@ public class ImmEng {
             .register("connector_me_relay",
                     () -> BlockEntityType.Builder.of(MEConnectorBlockEntity::new, ME_RELAY.get()).build(null));
 
-    public static final BlockCapability<IInWorldGridNodeHost, @Nullable Direction> IN_WORLD_GRID_NODE_HOST = BlockCapability
-            .createSided(new ResourceLocation(AEConstants.MOD_ID, "inworld_gridnode_host"), IInWorldGridNodeHost.class);
-
     public ImmEng(IEventBus modEventBus) {
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);
@@ -87,7 +79,7 @@ public class ImmEng {
         modEventBus.addListener(ImmEng::initDatagen);
 
         modEventBus.addListener((RegisterCapabilitiesEvent event) -> {
-            event.registerBlockEntity(IN_WORLD_GRID_NODE_HOST, ME_CONNECTOR_BE.get(), (be, side) -> be);
+            event.registerBlockEntity(AECapabilities.IN_WORLD_GRID_NODE_HOST, ME_CONNECTOR_BE.get(), (be, side) -> be);
         });
 
         modEventBus.addListener((BuildCreativeModeTabContentsEvent event) -> {
@@ -106,9 +98,13 @@ public class ImmEng {
         gen.addProvider(event.includeClient(),
                 new ImmEngStatesProvider(gen.getPackOutput(), event.getExistingFileHelper()));
 
-        gen.addProvider(event.includeServer(), new LootTableProvider(gen.getPackOutput(), Set.of(), List.of(
-                new LootTableProvider.SubProviderEntry(ImmEngBlockLoot::new, LootContextParamSets.BLOCK))));
-        gen.addProvider(event.includeServer(), new ImmEngRecipes(gen.getPackOutput()));
+        gen.addProvider(event.includeServer(), new LootTableProvider(
+                gen.getPackOutput(),
+                Set.of(),
+                List.of(
+                        new LootTableProvider.SubProviderEntry(ImmEngBlockLoot::new, LootContextParamSets.BLOCK)),
+                event.getLookupProvider()));
+        gen.addProvider(event.includeServer(), new ImmEngRecipes(gen.getPackOutput(), event.getLookupProvider()));
         gen.addProvider(event.includeServer(),
                 new ImmEngBlockTags(gen.getPackOutput(), event.getLookupProvider(), event.getExistingFileHelper()));
     }

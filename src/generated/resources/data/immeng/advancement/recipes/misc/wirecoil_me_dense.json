@@ -5,9 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "ae2:fluix_glass_cable"
-            ]
+            "items": "ae2:fluix_covered_dense_cable"
           }
         ]
       },
@@ -15,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "immeng:wirecoil_me"
+        "recipe": "immeng:wirecoil_me_dense"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "immeng:wirecoil_me"
+      "immeng:wirecoil_me_dense"
     ]
   }
 }

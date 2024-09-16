@@ -3,10 +3,10 @@
   "category": "misc",
   "key": {
     "c": {
-      "item": "ae2:fluix_covered_dense_cable"
+      "item": "ae2:fluix_glass_cable"
     },
     "s": {
-      "tag": "forge:rods/wooden"
+      "tag": "c:rods/wooden"
     }
   },
   "pattern": [
@@ -16,6 +16,6 @@
   ],
   "result": {
     "count": 4,
-    "item": "immeng:wirecoil_me_dense"
+    "id": "immeng:wirecoil_me"
   }
 }

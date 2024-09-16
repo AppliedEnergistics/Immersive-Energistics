@@ -13,6 +13,7 @@ import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.Vec3i;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
@@ -128,8 +129,8 @@ public class MEConnectorBlockEntity extends ImmersiveConnectableBlockEntity
     }
 
     @Override
-    public void load(CompoundTag nbtIn) {
-        super.load(nbtIn);
+    public void loadAdditional(CompoundTag nbtIn, HolderLookup.Provider registries) {
+        super.loadAdditional(nbtIn, registries);
 
         this.gridNode.loadFromNBT(nbtIn);
 
@@ -144,8 +145,8 @@ public class MEConnectorBlockEntity extends ImmersiveConnectableBlockEntity
     }
 
     @Override
-    protected void saveAdditional(CompoundTag nbt) {
-        super.saveAdditional(nbt);
+    protected void saveAdditional(CompoundTag nbt, HolderLookup.Provider registries) {
+        super.saveAdditional(nbt, registries);
 
         this.gridNode.saveToNBT(nbt);
 
