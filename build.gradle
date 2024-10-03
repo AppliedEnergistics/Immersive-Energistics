@@ -62,7 +62,8 @@ neoForge {
 }
 
 dependencies {
-    implementation("blusunrize.immersiveengineering:ImmersiveEngineering:${minecraft_version}-${ie_version}")
+    //implementation("blusunrize.immersiveengineering:ImmersiveEngineering:${minecraft_version}-${ie_version}")
+    implementation files("deps/ImmersiveEngineering-${minecraft_version}-${ie_version}.jar")
 
     // We depend on many AE2 internals, such as using their basic cell drive, thus not using classifier = "api"
     implementation("appeng:appliedenergistics2:${ae2_version}")
